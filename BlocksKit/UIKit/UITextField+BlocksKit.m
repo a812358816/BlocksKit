@@ -5,7 +5,6 @@
 
 #import "UITextField+BlocksKit.h"
 #import "A2DynamicDelegate.h"
-#import "NSObject+A2DynamicDelegate.h"
 #import "NSObject+A2BlockDelegate.h"
 
 #pragma mark Delegate
@@ -16,84 +15,119 @@
 
 @implementation A2DynamicUITextFieldDelegate
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-	BOOL ret = YES;
-	id realDelegate = self.realDelegate;
-	if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
-		ret = [realDelegate textFieldShouldBeginEditing:textField];
-	BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
-	if (block)
-		ret &= block(textField);
-	return ret;
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldBeginEditing:)])
+        ret = [realDelegate textFieldShouldBeginEditing:textField];
+    BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField);
+    return ret;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-	id realDelegate = self.realDelegate;
-	if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
-		[realDelegate textFieldDidBeginEditing:textField];
-	void (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
-	if (block)
-		block(textField);
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    id realDelegate = self.realDelegate;
+    if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldDidBeginEditing:)])
+        [realDelegate textFieldDidBeginEditing:textField];
+    void (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        block(textField);
 }
 
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-	BOOL ret = YES;
-	id realDelegate = self.realDelegate;
-	if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldEndEditing:)])
-		ret = [realDelegate textFieldShouldEndEditing:textField];
-	BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
-	if (block)
-		ret &= block(textField);
-	return ret;
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldEndEditing:)])
+        ret = [realDelegate textFieldShouldEndEditing:textField];
+    BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField);
+    return ret;
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField
-{
-	id realDelegate = self.realDelegate;
-	if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldDidEndEditing:)])
-		[realDelegate textFieldDidEndEditing:textField];
-	void (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
-	if (block)
-		block(textField);
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    id realDelegate = self.realDelegate;
+    if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldDidEndEditing:)])
+        [realDelegate textFieldDidEndEditing:textField];
+    void (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        block(textField);
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-{
-	BOOL ret = YES;
-	id realDelegate = self.realDelegate;
-	if (realDelegate && [realDelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
-		ret = [realDelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
-	BOOL (^block)(UITextField *, NSRange, NSString *) = [self blockImplementationForMethod:_cmd];
-	if (block)
-		ret &= block(textField, range, string);
-	return ret;
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if (realDelegate && [realDelegate respondsToSelector:@selector(textField:shouldChangeCharactersInRange:replacementString:)])
+        ret = [realDelegate textField:textField shouldChangeCharactersInRange:range replacementString:string];
+    BOOL (^block)(UITextField *, NSRange, NSString *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField, range, string);
+    return ret;
 }
 
-- (BOOL)textFieldShouldClear:(UITextField *)textField
-{
-	BOOL ret = YES;
-	id realDelegate = self.realDelegate;
-	if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldClear:)])
-		ret = [realDelegate textFieldShouldClear:textField];
-	BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
-	if (block)
-		ret &= block(textField);
-	return ret;
+- (BOOL)textFieldShouldClear:(UITextField *)textField {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldClear:)])
+        ret = [realDelegate textFieldShouldClear:textField];
+    BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField);
+    return ret;
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-	BOOL ret = YES;
-	id realDelegate = self.realDelegate;
-	if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldReturn:)])
-		ret = [realDelegate textFieldShouldReturn:textField];
-	BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
-	if (block)
-		ret &= block(textField);
-	return ret;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if (realDelegate && [realDelegate respondsToSelector:@selector(textFieldShouldReturn:)])
+        ret = [realDelegate textFieldShouldReturn:textField];
+    BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField);
+    return ret;
+}
+
+- (BOOL)keyboardInputChangedSelection:(UITextField *)textField {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if ([textField isKindOfClass:NSClassFromString(@"TUIEmojiSearchTextField")]) {
+        return ret;
+    }
+    if (realDelegate && [realDelegate respondsToSelector:@selector(keyboardInputChangedSelection:)])
+        ret = [realDelegate keyboardInputChangedSelection:textField];
+    BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField);
+    return ret;
+}
+
+- (BOOL)keyboardInputChanged:(UITextField *)textField {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if ([textField isKindOfClass:NSClassFromString(@"TUIEmojiSearchTextField")]) {
+        return ret;
+    }
+    if (realDelegate && [realDelegate respondsToSelector:@selector(keyboardInputChanged:)])
+        ret = [realDelegate keyboardInputChanged:textField];
+    BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField);
+    return ret;
+}
+
+- (BOOL)keyboardInputShouldDelete:(UITextField *)textField {
+    BOOL ret = YES;
+    id realDelegate = self.realDelegate;
+    if ([textField isKindOfClass:NSClassFromString(@"TUIEmojiSearchTextField")]) {
+        return ret;
+    }
+    if (realDelegate && [realDelegate respondsToSelector:@selector(keyboardInputShouldDelete:)])
+        ret = [realDelegate keyboardInputShouldDelete:textField];
+    BOOL (^block)(UITextField *) = [self blockImplementationForMethod:_cmd];
+    if (block)
+        ret &= block(textField);
+    return ret;
 }
 
 @end
@@ -106,15 +140,18 @@
 
 + (void)load {
     [self bk_registerDynamicDelegate];
-    [self bk_linkDelegateMethods: @{
-        @"bk_shouldBeginEditingBlock": @"textFieldShouldBeginEditing:",
-        @"bk_didBeginEditingBlock": @"textFieldDidBeginEditing:",
-        @"bk_shouldEndEditingBlock": @"textFieldShouldEndEditing:",
-        @"bk_didEndEditingBlock" : @"textFieldDidEndEditing:",
-        @"bk_shouldChangeCharactersInRangeWithReplacementStringBlock" : @"textField:shouldChangeCharactersInRange:replacementString:",
-        @"bk_shouldClearBlock" : @"textFieldShouldClear:",
-        @"bk_shouldReturnBlock" : @"textFieldShouldReturn:",
+    [self bk_linkDelegateMethods:@{
+            @"bk_shouldBeginEditingBlock": @"textFieldShouldBeginEditing:",
+            @"bk_didBeginEditingBlock": @"textFieldDidBeginEditing:",
+            @"bk_shouldEndEditingBlock": @"textFieldShouldEndEditing:",
+            @"bk_didEndEditingBlock": @"textFieldDidEndEditing:",
+            @"bk_shouldChangeCharactersInRangeWithReplacementStringBlock": @"textField:shouldChangeCharactersInRange:replacementString:",
+            @"bk_shouldClearBlock": @"textFieldShouldClear:",
+            @"bk_shouldReturnBlock": @"textFieldShouldReturn:",
     }];
 }
 
+- (id)customOverlayContainer {
+    return self;
+}
 @end
